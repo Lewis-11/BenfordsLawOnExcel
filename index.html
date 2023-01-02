@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <link rel="stylesheet" href="custom-style.css">
+</head>
+
+<body>
+    <div class="section" style="padding-top: 0cm;">
+    <h1 id="program-name">Program Name</h1>
+    
+    <h2 id="table-of-contents">Table of Contents</h2>
+    <!-- no toc -->
+    <ul>
+        <li><a href="#1-introduction">1. Introduction</a></li>
+        <li><a href="#2-theory">2. Theory</a>
+            <ul>
+                <li><a href="#21-definition">2.1. Definition</a></li>
+                <li><a href="#22-explanation">2.2. Explanation</a></li>
+                <li><a href="#23-frequencies-for-each-digit">2.3. Frequencies for each digit</a></li>
+                <li><a href="#24-uses-and-notes">2.4. Uses and notes</a></li>
+            </ul>
+        </li>
+        <li><a href="#3-installation">3. Installation</a>
+            <ul>
+                <li><a href="#31-adding-macro-to-menu">3.1. Adding macro to Menu</a></li>
+            </ul>
+        </li>
+        <li><a href="#4-usage">4. Usage</a>
+            <ul>
+                <li><a href="#41-dataset-requirements">4.1. Dataset Requirements</a></li>
+                <li><a href="#42-usage-guide">4.2. Usage Guide</a>
+                    <ul>
+                        <li><a href="#421-benfords-report---table">4.2.1 Benford's Report - Table</a></li>
+                        <li><a href="#422-benfords-report---plot">4.2.2 Benford's Report - Plot</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><a href="#5-examples">5. Examples</a></li>
+        <li><a href="#6-credits">6. Credits</a></li>
+    </ul>
+
+    <h2 id="1-introduction">1. Introduction</h2>
+    <p>Welcome to the Benford's Law Excel Macro! This program is designed to make it easy and quick to apply Benford's
+        Law
+        to any dataset.</p>
+    <p>Benford's Law is a statistical principle that predicts the frequency of digits in sets of numerical data. It
+        states
+        that in many real-world datasets, the leading digit is likely to be a small number. For example, in a dataset of
+        prices, the number &quot;1&quot; is likely to be the leading digit more often than any other number.</p>
+    <p>This macro allows you to quickly and easily analyze your own data to see if it follows Benford's Law. Simply
+        input
+        your data into an Excel spreadsheet and run the macro to get a report on the distribution of leading digits in
+        your
+        dataset.</p>
+    <p>Whether you're a researcher, a data analyst, or just curious about Benford's Law, this macro is a useful tool for
+        understanding and analyzing numerical data.</p>
+    
+    <h2 id="2-theory">2. Theory</h2>
+    <h3 id="21-definition">2.1. Definition</h3>
+    <p>Benford's Law is a statistical principle that states that in many real-world datasets, the leading digit (the
+        leftmost digit) is likely to be a small number.</p>
+    <p>For example, in a set of numbers that represent the population sizes of cities, it is more likely that a city
+        will
+        have a population starting with the digit 1 (such as 10,000 or 100,000) than a population starting with the
+        digit 9
+        (such as 90,000 or 900,000).</p>
+    </div>
+    <div class="section">
+    <h3 id="22-explanation">2.2. Explanation</h3>
+    <p>This phenomenon can be explained by the fact that many real-world datasets are distributed along a logarithmic
+        scale.
+    </p>
+    <p>On a logarithmic scale, numbers are evenly spaced out in terms of their orders of magnitude. For example, the
+        distance between 1 and 10 is the same as the distance between 10 and 100. This means that leading digits are
+        distributed in the exact same way in every order of magnitude.</p>
+    <p>Another property of logarithmic scale is that regions that start with a smaller leading digit (such as 1, 2 or 3)
+        are
+        much wider than regions that start with a larger leading digit (such as 7, 8 or 9). This makes it more likely
+        for
+        numbers of a dataset that is spread across multiple orders of magnitude to fall into regions with smaller
+        leading
+        digits.</p>
+    <p><img src="assets/LogFibo.PNG"
+            style="border: 8px solid #f2f2f2; padding: 0.5px; background-color: #f2f2f2; border-radius: 20px; box-shadow: 0px 5px 10px dimgray;"></img>
+    </p>
+    <h3 id="23-frequencies-for-each-digit">2.3. Frequencies for each digit</h3>
+    <p>Benford's Law can be expressed mathematically as follows:</p>
+    <p><span><span><span><math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                        <semantics>
+                            <mrow>
+                                <mi>P</mi>
+                                <mo stretchy="false">(</mo>
+                                <mi>d</mi>
+                                <mo stretchy="false">)</mo>
+                                <mo>=</mo>
+                                <msub>
+                                    <mrow>
+                                        <mi>log</mi>
+                                        <mo>⁡</mo>
+                                    </mrow>
+                                    <mn>10</mn>
+                                </msub>
+                                <mrow>
+                                    <mo fence="true">(</mo>
+                                    <mn>1</mn>
+                                    <mo>+</mo>
+                                    <mfrac>
+                                        <mn>1</mn>
+                                        <mi>d</mi>
+                                    </mfrac>
+                                    <mo fence="true">)</mo>
+                                </mrow>
+                            </mrow>
+                            <annotation encoding="application/x-tex">P(d) = \log_{10} \left( 1 + \frac{1}{d} \right)
+                            </annotation>
+                        </semantics>
+                    </math></span>  </span></span></p>
+    <p>where <code>P(d)</code> is the probability that a number will have the digit <code>d</code> as its leading digit
+        and
+        <code>d</code> is a digit from 1 to 9.
+    </p>
+    <p>The following table lists the frequencies of each digit according to Benford's Law:</p>
+    <center>
+        <table>
+            <thead>
+                <tr>
+                    <th>Digit</th>
+                    <th>Frequency</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>30.1%</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>17.6%</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>12.5%</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>9.7%</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>7.9%</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>6.7%</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>5.8%</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>5.1%</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>4.6%</td>
+                </tr>
+            </tbody>
+        </table>
+    </center>
+</div>
+<div class="section">
+    <h3 id="24-uses-and-notes">2.4. Uses and notes</h3>
+    <p>Benford's Law has been found to hold true for a wide variety of datasets, including financial data, population
+        data,
+        and physical constants. It can be used as a tool for detecting fraudulent or anomalous data, as well as for
+        understanding the underlying distribution of values in a dataset. It is important to note that Benford's Law is
+        not
+        a perfect prediction and may not hold true for all datasets, but it can still be a useful tool for understanding
+        and
+        analyzing numerical data.</p>
+    <h2 id="3-installation">3. Installation</h2>
+    <p>Installing the Excel macro is easy! Simply follow these steps:</p>
+    <ol>
+        <li>Download the <code>.xla</code> file from github <strong>[AÑADIR LINK]</strong></li>
+        <li>Open Microsoft Excel on your computer.</li>
+        <li>Go to the <strong>File</strong> menu and select <strong>Options</strong>.</li>
+        <li>In the <strong>Options</strong> window, select <strong>Add-Ins</strong> from the list on the left.</li>
+        <li>In the <strong>Manage</strong> dropdown menu at the bottom of the window, select <strong>Excel
+                Add-ins</strong>
+            and click <strong>Go</strong>.</li>
+        <li>In the <strong>Add-Ins</strong> window, click the <strong>Browse</strong> button.</li>
+        <li>Navigate to the location where you saved the <code>.xla</code> file and select it.</li>
+        <li>Click <strong>OK</strong> to install the macro.</li>
+    </ol>
+    <p>Once the installation is complete, the macro will be available for use in any Excel workbook. To use the macro,
+        you
+        can either select it from the <strong>Macros</strong> dropdown menu on the <strong>View</strong> tab, or you can
+        add
+        it to the ribbon for easy access.</p>
+    <h3 id="31-adding-macro-to-menu">3.1. Adding macro to Menu</h3>
+    <p>To add the macro to the ribbon, follow these steps:</p>
+    <ol>
+        <li>Go to the <strong>File</strong> menu and select <strong>Options</strong>.</li>
+        <li>In the <strong>Options</strong> window, select <strong>Customize Ribbon</strong> from the list on the left.
+        </li>
+        <li>In the <strong>Customize the Ribbon</strong> window, click the <strong>New Group</strong> button on the
+            right
+            side of the &quot;Review&quot; tab.</li>
+        <li>In the <strong>New Group</strong> window, give the group a name (such as &quot;Benford's Law&quot;) and
+            click
+            <strong>OK</strong>.
+        </li>
+        <li>In the <strong>Customize the Ribbon</strong> window, select the new group you just created and click the
+            <strong>Add&gt;&gt;</strong> button.
+        </li>
+        <li>In the <strong>Choose commands from</strong> dropdown menu, select <strong>Macros</strong>.</li>
+        <li>From the list of available macros, select <code>MACRO_NAME</code> and click <strong>Add&gt;&gt;</strong>.
+        </li>
+        <li>Click <strong>OK</strong> to save your changes.</li>
+    </ol>
+    <p>Now the macro will be available on the &quot;Review&quot; tab in the new group you created. Simply click the
+        button
+        to run the macro and apply Benford's Law to your dataset.</p>
+    <p>That's it! You're now ready to start using the Excel macro to easily and quickly apply Benford's Law to your
+        datasets.</p>
+    </div>
+    <div class="section" style="padding-bottom: 0cm">
+    <h2 id="4-usage">4. Usage</h2>
+    <h3 id="41-dataset-requirements">4.1. Dataset Requirements</h3>
+    <p>Benford's Law is a statistical principle that can be used to analyze a dataset to determine whether it is likely
+        to
+        be a random, natural dataset or whether it has been artificially manipulated. In order to analyze a dataset with
+        Benford's Law, the following requirements should be met:</p>
+    <ol>
+        <li>
+            <p>The dataset should be large enough to be statistically significant. Benford's Law is based on the idea
+                that
+                large datasets follow a predictable pattern, so it is important to have a large enough sample size to
+                accurately apply the law.</p>
+        </li>
+        <li>
+            <p>The dataset should be numeric and continuous. Benford's Law is based on the distribution of the first
+                digits
+                of numbers, so the dataset must consist of numeric values that can be analyzed in this way. The values
+                should also be continuous, rather than discrete or categorical, in order to accurately apply the law.
+            </p>
+        </li>
+        <li>
+            <p>The data should be collected from a natural or random source. Benford's Law is most effective when
+                applied to
+                datasets that are generated naturally or randomly, rather than artificially manipulated.</p>
+        </li>
+        <li>
+            <p>The data should be unbiased. The data should not be influenced by any external factors or biases that
+                could
+                affect the distribution of the first digits.</p>
+        </li>
+        <li>
+            <p>The data should be independent. Each data point should be independent of the others, meaning that it
+                should
+                not be influenced by or related to any other data points in the dataset.</p>
+        </li>
+    </ol>
+    <p>Overall, a dataset that meets these requirements is more likely to be accurately analyzed using Benford's Law,
+        and
+        the results of the analysis will be more reliable and meaningful.</p>
+    <h3 id="42-usage-guide">4.2. Usage Guide</h3>
+    <ol>
+        <li>
+            <p>As soon as we run the macro <code>MACRO NAME</code> we will be asked to select which cells we want to
+                analyze.</p>
+            <p>The recommended action will be to select every full column in which we are interested.</p>
+            <p>You can also just focus on a specific set of rows but remember that is better to analyze as many values
+                as
+                possible for the statistical tests to be significant.</p>
+        </li>
+        <li>
+            <p>When we confirm our selection, a new Excel worksheet will appear with the name
+                <code>Benford's Report</code>.
+                In this worksheet we will find a table and a plot which I will describe separately.
+            </p>
+        </li>
+    </ol>
+    <p><img src="assets/BenfordsReport.PNG"
+            style="border: 8px solid #f2f2f2; padding: 0.5px; background-color: #f2f2f2; border-radius: 20px; box-shadow: 0px 5px 10px dimgray;"></img>
+    </p>
+    </div>
+    <div class="section">
+    <h4 id="421-benfords-report---table">4.2.1 Benford's Report - Table</h4>
+    <p>The table is the most important part of this generated worksheet. It not only contains the expected and observed
+        frequencies for each most significant digit on every column we chose to analyze, but also some suggestions on
+        how to
+        interpret the results.</p>
+    <p>In the &quot;suggestion&quot; module of the table, users are presented with three valuable insights to consider
+        when
+        analyzing their data.</p>
+    <p>The first recommendation is the number of entries analyzed, which should be as high as possible in order to
+        increase
+        the significance of the statistical tests.</p>
+    <p>Next, a chi square test is presented, complete with the chi square value, the corresponding p-value, and an
+        interpretation of the p-value that reveals whether the observed frequency aligns with the expected frequency or
+        not.
+    </p>
+    <p>Lastly, users are provided with the minimum and maximum values observed, offering a comprehensive overview of the
+        range of values present in the data. If the range of values is not very large, Benford's Law may not be
+        applicable
+        to the dataset.</p>
+    <p>After performing the tests, we have gained some insights into whether each column follows Benford's law or not.
+        However, it is important to note that Benford's law may not always be applicable to every dataset, even if the
+        tests
+        indicate that it follows the law. Therefore, it is recommended to carefully analyze and verify the results for
+        yourself to determine the appropriateness of using Benford's law for your specific dataset.</p>
+    <p><img src="assets/Table.PNG"
+            style="border: 8px solid #f2f2f2; padding: 0.5px; background-color: #f2f2f2; border-radius: 20px; box-shadow: 0px 5px 10px dimgray;"></img>
+    </p>
+    </div>
+    <div class="section">
+    <h4 id="422-benfords-report---plot">4.2.2 Benford's Report - Plot</h4>
+    <p>The plot on this slide is a grouped column chart that compares the expected frequencies predicted by Benford's
+        Law,
+        represented in orange, with the observed frequencies from our dataset, represented in a colorblind friendly
+        color
+        scale of blue.</p>
+    <p>The specific shade of blue used for the observed frequencies is chosen dynamically based on the number of
+        observations. Orange and blue are complementary colors, which helps to make the chart easier to read and
+        interpret.
+    </p>
+    <p>By comparing the expected frequencies to the observed frequencies from our dataset, we can determine how closely
+        the
+        actual data follows Benford's Law and identify any deviations from the expected pattern.</p>
+    <p>This chart allows us to easily visualize and analyze these differences, helping us to understand any patterns or
+        trends that may be present in our data.</p>
+    <p><img src="assets/Plot.PNG"
+            style="border: 8px solid #f2f2f2; padding: 0.5px; background-color: #f2f2f2; border-radius: 20px; box-shadow: 0px 5px 10px dimgray;"></img>
+    </p>
+    <h2 id="5-examples">5. Examples</h2>
+    <p>This example will explaing the walkthrough of executing this macro on a dataset with cricket runs from different
+        players. The columns are the following:</p>
+    <ul>
+        <li>Player: <em>(text)</em> This column represents the name of the cricket player.</li>
+        <li>Span: <em>(date)</em> This column represents the range of years in which the player played One Day
+            International
+            (ODI) matches.</li>
+        <li>Inns: <em>(numeric)</em> This column represents the number of innings played by the player. An inning is a
+            period of play in a cricket match during which one team takes its turn to bat.</li>
+        <li>Runs: <em>(numeric)</em> This column represents the number of runs scored by the player in ODI matches. In
+            cricket, a run is scored when the batsman hits the ball and runs to the other end of the pitch, or when runs
+            are
+            awarded as a result of an error or penalty by the fielding team.</li>
+        <li>MSD_runs: <em>(numeric)</em> Most significant digit (leftmost digit) of &quot;Runs&quot; column.</li>
+    </ul>
+    </div>
+    <div class="section">
+    <p>In this dataset the only columns we are able to analyze are the last three, the numeric ones.</p>
+    <p><img src="assets/selection.gif" id="gif"
+            style="border: 8px solid #f2f2f2; padding: 0.5px; background-color: #f2f2f2; border-radius: 20px; box-shadow: 0px 5px 10px dimgray; width: 80%;"></img>
+    </p>
+    <p><img src="assets/gif-paused.png" id="gif-paused"
+        style="border: 8px solid #f2f2f2; padding: 0.5px; background-color: #f2f2f2; border-radius: 20px; box-shadow: 0px 5px 10px dimgray; width: 80%;"></img>
+    </p>
+    <p><img src="assets/example-table.png"
+            style="border: 8px solid #f2f2f2; padding: 0.5px; background-color: #f2f2f2; border-radius: 20px; box-shadow: 0px 5px 10px dimgray; width: 80%;"></img>
+    </p>
+    </div>
+    <div class="section">
+    <p>Now that we have our results, by looking at the table we can extract the following information for each of the
+        columns we chose:</p>
+    <ul>
+        <li>Inns: Number of numeric entries &gt; o are enough. Goodnes of Fit result says it very unlikely for this
+            column
+            to follow Benford's Law.</li>
+        <li>Runs: Numeric entries greater than zero are also acceptable here. The p-value do not suggest that the
+            observed
+            frequency does not follow Benford's Law and the difference between orders of magnitude is significant. At a
+            first glance, the number of runs of each different player appears to follow the distribution.</li>
+        <li>MSD_runs: For numeric entries and Goodnes of Fit test we get the exact same results as the previous column.
+            But
+            the difference between orders of magnitude is not acceptable as we are only checking digits here (1-9) so
+            even
+            tho the tests return promising results, it does not make sense to look for Benfordness here.</li>
+    </ul>
+    <p><img src="assets/example-plot.png"
+            style="border: 8px solid #f2f2f2; padding: 0.5px; background-color: #f2f2f2; border-radius: 20px; box-shadow: 0px 5px 10px dimgray;"></img>
+    </p>
+    <p>On the plot we can confirm that the first &quot;Inns&quot; column, eventho is quite similar, its not following
+        the
+        distribution as close as we would expect.</p>
+    <p>We can also notice that as we mentioned, both &quot;Runs&quot; and &quot;MSD_runs&quot; present the exact same
+        distribution, but because of the information from the table we should only focus on the &quot;Runs&quot;
+        column.
+    </p>
+    <h2 id="6-credits">6. Credits</h2>
+    <p>This Macro has been coded by Luis Rodríguez Rubio for a 10 ECTS project at Aarhus University and has been
+        supervised
+        by Hans Jörg Schulz.</p>
+    <p>This project was aligned with the Data Visualization course of the Computer Science Master's Degree.</p>
+    </div>
+    <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+
+</body>
+
+</html>
