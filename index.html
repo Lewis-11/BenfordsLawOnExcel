@@ -183,22 +183,34 @@
         and
         analyzing numerical data.</p>
     <h2 id="3-installation">3. Installation</h2>
-    <p>Installing the Excel macro is easy! Simply follow these steps:</p>
+    <p>In order to make this macro available for every workbook you will need to add it to your <strong>Personal Macro Workbook</strong>. By default, the personal macro workbook doesn’t exist. You need to first create it:</p>
+    <ol>
+        <li>Open a new workbook or any existing workbook.</li>
+        <li>Go to the Developer tab in the ribbon.</li>
+        <li>Click on <strong>Record Macro</strong>.</li>
+        <li>In the <strong>Store Macro</strong> in drop down, select <strong>Personal Macro Workbook</strong>.</li>
+        <li>Scroll down to the <strong>General</strong> section, and click the <strong>Edit</strong> button next to <strong>Personal Macro Workbook</strong>.</li>
+        <li>In the <strong>Personal Macro Workbook</strong> window, click the <strong>Import</strong> button.</li>
+        <li>Click <strong>OK</strong>. And stop recording the macro. Now if you close the workbook you have oppened a promp will appear asking you if you want to save the <strong>Personal Macro Workbook</strong>. Click <strong>Save</strong>.</li>
+    </ol>
+    
     <ol>
         <li>Download the <code>.bas</code> file from <a href="https://github.com/Lewis-11/BenfordsLawOnExcel">Github</a></li>
         <li>Open Microsoft Excel on your computer.</li>
-        <li>Go to the <strong>File</strong> menu and select <strong>Options</strong>.</li>
-        <li>In the <strong>Options</strong> window, select <strong>Advanced</strong> in the left sidebar.</li>
-        <li>Scroll down to the <strong>General</strong> section, and click the <strong>Edit</strong> button next to <strong>Personal Macro Workbook</strong>.</li>
-        <li>In the <strong>Personal Macro Workbook</strong> window, click the <strong>Import</strong> button.</li>
+        <li>Go to the <strong>Developer</strong> tab.</li>
+        <li>Click on the <strong>Visual Basic</strong> button (or use ALT+F11).</li>
+        <li>In the Visual Basic Editor, on the left side bar you will see<strong>PERSONAL.XLSB</strong>. Right click on it and select <strong>Import file</strong>.</li>
         <li>Navigate to the location where you saved the <code>.bas</code> file and select it.</li>
-        <li>Click <strong>Open</strong> to import the macro.</li>
+        <li>Once you exit a prompt will appear asking you to save changes in your Personal Macro Workbook, select Save.</li>
     </ol>
+
     <p>Once the installation is complete, the macro will be available for use in any Excel workbook. To use the macro,
         you
         can either select it from the <strong>Macros</strong> dropdown menu on the <strong>View</strong> tab, or you can
         add
         it to the ribbon for easy access.</p>
+    </div>
+    <div class="section">
     <h3 id="31-adding-macro-to-menu">3.1. Adding macro to Menu</h3>
     <p>To add the macro to the ribbon, follow these steps:</p>
     <ol>
@@ -225,8 +237,7 @@
         to run the macro and apply Benford's Law to your dataset.</p>
     <p>That's it! You're now ready to start using the Excel macro to easily and quickly apply Benford's Law to your
         datasets.</p>
-    </div>
-    <div class="section" style="padding-bottom: 0cm">
+    
     <h2 id="4-usage">4. Usage</h2>
     <h3 id="41-dataset-requirements">4.1. Dataset Requirements</h3>
     <p>Benford's Law is a statistical principle that can be used to analyze a dataset to determine whether it is likely
@@ -266,6 +277,8 @@
     <p>Overall, a dataset that meets these requirements is more likely to be accurately analyzed using Benford's Law,
         and
         the results of the analysis will be more reliable and meaningful.</p>
+    </div>
+    <div class="section">
     <h3 id="42-usage-guide">4.2. Usage Guide</h3>
     <ol>
         <li>
@@ -286,8 +299,6 @@
     <p><img src="assets/BenfordsReport.PNG"
             style="border: 8px solid #f2f2f2; padding: 0.5px; background-color: #f2f2f2; border-radius: 20px; box-shadow: 0px 5px 10px dimgray;"></img>
     </p>
-    </div>
-    <div class="section">
     <h4 id="421-benfords-report---table">4.2.1 Benford's Report - Table</h4>
     <p>The table is the most important part of this generated worksheet. It not only contains the expected and observed
         frequencies for each most significant digit on every column we chose to analyze, but also some suggestions on
@@ -312,11 +323,13 @@
         tests
         indicate that it follows the law. Therefore, it is recommended to carefully analyze and verify the results for
         yourself to determine the appropriateness of using Benford's law for your specific dataset.</p>
-    <p><img src="assets/Table.PNG"
-            style="border: 8px solid #f2f2f2; padding: 0.5px; background-color: #f2f2f2; border-radius: 20px; box-shadow: 0px 5px 10px dimgray;"></img>
-    </p>
     </div>
     <div class="section">
+    
+        <p><img src="assets/Table.PNG"
+            style="border: 8px solid #f2f2f2; padding: 0.5px; background-color: #f2f2f2; border-radius: 20px; box-shadow: 0px 5px 10px dimgray;"></img>
+    </p>
+    
     <h4 id="422-benfords-report---plot">4.2.2 Benford's Report - Plot</h4>
     <p>The plot on this slide is a grouped column chart that compares the expected frequencies predicted by Benford's
         Law,
@@ -332,6 +345,8 @@
         actual data follows Benford's Law and identify any deviations from the expected pattern.</p>
     <p>This chart allows us to easily visualize and analyze these differences, helping us to understand any patterns or
         trends that may be present in our data.</p>
+    </div>
+    <div class="section" style="padding-bottom: 0px;">
     <p><img src="assets/Plot.PNG"
             style="border: 8px solid #f2f2f2; padding: 0.5px; background-color: #f2f2f2; border-radius: 20px; box-shadow: 0px 5px 10px dimgray;"></img>
     </p>
@@ -351,20 +366,20 @@
             awarded as a result of an error or penalty by the fielding team.</li>
         <li>MSD_runs: <em>(numeric)</em> Most significant digit (leftmost digit) of &quot;Runs&quot; column.</li>
     </ul>
-    </div>
-    <div class="section">
+
     <p>In this dataset the only columns we are able to analyze are the last three, the numeric ones.</p>
     <p><img src="assets/selection.gif" id="gif"
-            style="border: 8px solid #f2f2f2; padding: 0.5px; background-color: #f2f2f2; border-radius: 20px; box-shadow: 0px 5px 10px dimgray; width: 80%;"></img>
+            style="border: 8px solid #f2f2f2; padding: 0.5px; background-color: #f2f2f2; border-radius: 20px; box-shadow: 0px 5px 10px dimgray; width: 50%;"></img>
     </p>
+    
     <p><img src="assets/gif-paused.png" id="gif-paused"
-        style="border: 8px solid #f2f2f2; padding: 0.5px; background-color: #f2f2f2; border-radius: 20px; box-shadow: 0px 5px 10px dimgray; width: 80%;"></img>
+        style="border: 8px solid #f2f2f2; padding: 0.5px; background-color: #f2f2f2; border-radius: 20px; box-shadow: 0px 5px 10px dimgray; width: 50%;"></img>
     </p>
+</div>
+<div class="section">
     <p><img src="assets/example-table.png"
             style="border: 8px solid #f2f2f2; padding: 0.5px; background-color: #f2f2f2; border-radius: 20px; box-shadow: 0px 5px 10px dimgray; width: 80%;"></img>
     </p>
-    </div>
-    <div class="section">
     <p>Now that we have our results, by looking at the table we can extract the following information for each of the
         columns we chose:</p>
     <ul>
@@ -384,6 +399,8 @@
     <p><img src="assets/example-plot.png"
             style="border: 8px solid #f2f2f2; padding: 0.5px; background-color: #f2f2f2; border-radius: 20px; box-shadow: 0px 5px 10px dimgray;"></img>
     </p>
+</div>
+<div class="section">
     <p>On the plot we can confirm that the first &quot;Inns&quot; column, eventho is quite similar, its not following
         the
         distribution as close as we would expect.</p>
