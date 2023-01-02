@@ -85,14 +85,14 @@ Benford's Law has been found to hold true for a wide variety of datasets, includ
 
 Installing the Excel macro is easy! Simply follow these steps:
 
-1. Download the `.xla` file from github **[AÑADIR LINK]**
+1. Download the `.bas` file from [Github](https://github.com/Lewis-11/BenfordsLawOnExcel/)
 2. Open Microsoft Excel on your computer.
 3. Go to the **File** menu and select **Options**.
-4. In the **Options** window, select **Add-Ins** from the list on the left.
-5. In the **Manage** dropdown menu at the bottom of the window, select **Excel Add-ins** and click **Go**.
-6. In the **Add-Ins** window, click the **Browse** button.
-7. Navigate to the location where you saved the `.xla` file and select it.
-8. Click **OK** to install the macro.
+4. In the **Options** window, click on **Advanced** in the left sidebar.
+5. Scroll down to the **General** section, and click the **Edit** button next to **Personal Macro Workbook**.
+6. In the **Personal Macro Workbook** window, click on the **Import** button.
+7. Navigate to the location where you saved the `.bas` file and select it.
+8. Click **Open** to import the macro.
 
 Once the installation is complete, the macro will be available for use in any Excel workbook. To use the macro, you can either select it from the **Macros** dropdown menu on the **View** tab, or you can add it to the ribbon for easy access.
 
