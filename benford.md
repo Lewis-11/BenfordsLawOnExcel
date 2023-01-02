@@ -1,8 +1,8 @@
 <head>
-    <link rel="stylesheet" href="custom-style.css">
+    <link rel="stylesheet" href="assets/custom-style.css">
 </head>
 
-# Program Name
+# Benford's Law on Excel
 
 ## Table of Contents
 
