@@ -83,16 +83,22 @@ Benford's Law has been found to hold true for a wide variety of datasets, includ
 
 ## 3. Installation
 
-Installing the Excel macro is easy! Simply follow these steps:
+In order to make this macro available for every workbook you will need to add it to your **Personal Macro Workbook**. By default, the personal macro workbook doesn’t exist. You need to first create it:
+1. Open a new workbook or any existing workbook.
+2. Go to the **Developer** tab in the ribbon.
+3. Click on **Record Macro**.
+4. In the **Store Macro in** drop down, select Personal Macro Workbook.
+5. Click **OK**. And stop recording the macro. Now if you close the workbook you have oppened a promp will appear asking you if you want to save the **Personal Macro Workbook**. Click **Save**.
+
+After that you will need to import BenfordsLawMacro to the **Personal Macro Workbook**
 
 1. Download the `.bas` file from [Github](https://github.com/Lewis-11/BenfordsLawOnExcel/)
 2. Open Microsoft Excel on your computer.
-3. Go to the **File** menu and select **Options**.
-4. In the **Options** window, click on **Advanced** in the left sidebar.
-5. Scroll down to the **General** section, and click the **Edit** button next to **Personal Macro Workbook**.
-6. In the **Personal Macro Workbook** window, click on the **Import** button.
-7. Navigate to the location where you saved the `.bas` file and select it.
-8. Click **Open** to import the macro.
+3. Go to the **Developer** tab.
+4. Click on **Visual Basic** button (or use ALT+F11).
+5. In the Visual Basic Editor, in the left side bar you will see **PERSONAL.XLSB**. Right click on it and select **Import file**.
+6. Navigate to the location where you saved the `.bas` file and select it.
+7. Once you exit a prompt will appear asking you to save changes in your **Personal Macro Workbook**, select **Save**.
 
 Once the installation is complete, the macro will be available for use in any Excel workbook. To use the macro, you can either select it from the **Macros** dropdown menu on the **View** tab, or you can add it to the ribbon for easy access.
 
